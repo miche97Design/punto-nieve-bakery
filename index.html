@@ -195,14 +195,14 @@ footer{border-top:1px solid var(--line)}
     <div class="cards">
       <article class="card">
         <div class="ph">[Foto]</div>
-        <h3>Pasteles de celebración</h3>
+        <h3>Buttercream Cake</h3>
         <p>Para cumpleaños, bodas y fechas especiales. Diseño y sabor a tu medida.</p>
         <div class="card-foot"><span class="muted">Desde [PRECIO]</span><a href="#pedidos" data-pick="pastel">Pedir →</a></div>
       </article>
       <article class="card">
         <div class="ph">[Foto]</div>
         <h3>Cheesecakes</h3>
-        <p>Cremosos, horneados con calma. Clásico o con la fruta de tu elección.</p>
+        <p>Cremosos, horneados con calma. Sabor: Fresa, Arándanos, Frutos Rojos, Nutella, o Salted Caramel</p>
         <div class="card-foot"><span class="muted">Desde [PRECIO]</span><a href="#pedidos" data-pick="cheesecake">Pedir →</a></div>
       </article>
       <article class="card">
@@ -242,7 +242,7 @@ footer{border-top:1px solid var(--line)}
       <div class="notes">
         <div><b>—</b><span>Pedidos con mínimo 48 horas de anticipación.</span></div>
         <div><b>—</b><span>Confirmamos disponibilidad y total por WhatsApp.</span></div>
-        <div><b>—</b><span>Anticipo de [X]% para reservar la fecha.</span></div>
+        <div><b>—</b><span>Anticipo de 50% para reservar la fecha.</span></div>
       </div>
     </div>
 
@@ -350,7 +350,7 @@ footer{border-top:1px solid var(--line)}
       </div>
       <div><p class="eyebrow">Visítanos</p><p>[DIRECCIÓN]<br>[CIUDAD]</p></div>
       <div><p class="eyebrow">Horario</p><p>[DÍAS]<br>[HORAS]</p></div>
-      <div><p class="eyebrow">Contacto</p><p>WhatsApp [NÚMERO]<br>Instagram [@USUARIO]</p></div>
+      <div><p class="eyebrow">Contacto</p><p><a href="https://wa.me/50496469781" target="_blank" rel="noopener" style="color:var(--muted)">WhatsApp +504 9646-9781</a><br>Instagram [@USUARIO]</p></div>
     </div>
     <div class="foot-bottom">
       <span>© <span id="year">2026</span> Punto Nieve Bakery</span>
@@ -363,7 +363,7 @@ footer{border-top:1px solid var(--line)}
 /* ===== Configuración =====
    Escribe aquí el número de WhatsApp del negocio (solo dígitos, con código de país, p. ej. "50499998888").
    Si lo dejas vacío, el pedido solo muestra la confirmación en pantalla. */
-var WHATSAPP_NUMBER = "";
+var WHATSAPP_NUMBER = "50496469781";
 var MIN_DAYS_AHEAD = 2;
 
 (function () {
@@ -453,7 +453,8 @@ var MIN_DAYS_AHEAD = 2;
         '\n• Nombre: ' + data.name + '\n• Teléfono: ' + data.phone + (data.email ? '\n• Correo: ' + data.email : '');
       wa.href = 'https://wa.me/' + WHATSAPP_NUMBER.replace(/\D/g, '') + '?text=' + encodeURIComponent(msg);
       wa.hidden = false;
-      document.getElementById('d-msg').textContent = 'Toca el botón para enviarnos tu pedido por WhatsApp. Te confirmaremos disponibilidad, total y anticipo.';
+      document.getElementById('d-msg').textContent = 'Abrimos WhatsApp con tu pedido listo para enviar. Si no se abrió, toca el botón. Te confirmaremos disponibilidad, total y anticipo.';
+      window.open(wa.href, '_blank', 'noopener');
     } else {
       wa.hidden = true;
       document.getElementById('d-msg').textContent = 'Te escribiremos al ' + data.phone + ' para confirmar disponibilidad, total y anticipo.';
