@@ -3,6 +3,7 @@
 Landing page para agendar pedidos de repostería artesanal.
 
 - Sitio: https://punto-nieve-bakery.vercel.app
+- Repositorio conectado a Vercel: cada cambio en `main` se publica solo.
 - Todo el sitio está en `index.html` (HTML, CSS y JS, sin dependencias).
 
 ## Configurar WhatsApp
