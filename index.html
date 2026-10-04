@@ -63,6 +63,8 @@ nav.main a.cta:hover{border-color:var(--accent)}
 .frame{width:100%;max-width:440px;aspect-ratio:4/5;border:1px solid var(--line-2);padding:18px}
 .ph{width:100%;height:100%;background:var(--panel);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:var(--faint);font-size:12px;letter-spacing:.16em;text-transform:uppercase;overflow:hidden}
 .ph img{width:100%;height:100%;object-fit:cover}
+.hero-img{width:100%;max-width:520px;height:auto;aspect-ratio:4/5;object-fit:cover;display:block}
+.head-row p.head-note{font-size:12px;font-weight:500;letter-spacing:.06em}
 
 /* Products */
 .head-row{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:64px}
@@ -163,23 +165,17 @@ footer{border-top:1px solid var(--line)}
 <main>
 <div class="wrap hero" id="inicio">
   <div class="hero-copy">
-    <p class="eyebrow">Repostería artesanal · Por encargo</p>
-    <h1>Postres Artesanales para celebrar tu cumple</h1>
-    <p class="lead">Pasteles, cheesecakes y postres preparados en pequeñas tandas. Elige lo que quieres, agenda el día y nosotros nos encargamos del resto.</p>
+    <p class="eyebrow">Repostería artesanal · Libre de conservantes añadidos</p>
+    <h1>Ingredientes Premium y <em>SABORES REALES</em></h1>
+    <p class="lead">Postres 100% Artesanales para Cumpleaños, Aniversario, Graduación, Baby Shower, o para un delicioso domingo por la tarde.</p>
     <div class="actions">
       <a href="#pedidos" class="btn">Agendar pedido</a>
       <a href="#productos" class="link-line">Ver productos</a>
     </div>
-    <div class="traits"><span>Hecho a mano</span><i>·</i><span>Por encargo</span><i>·</i><span>Entrega o recogida</span></div>
+    <div class="traits"><span>Hecho a mano</span><i>·</i><span>Por encargo</span><i>·</i><span>Delivery/Pick-Up</span></div>
   </div>
   <div class="hero-art">
-    <div class="frame">
-      <!-- Reemplaza este bloque por: <div class="ph"><img src="/img/portada.jpg" alt="..."></div> -->
-      <div class="ph">
-        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#3B5788" stroke-width=".8" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="2" x2="12" y2="22"/><line x1="3.34" y1="7" x2="20.66" y2="17"/><line x1="3.34" y1="17" x2="20.66" y2="7"/><circle cx="12" cy="12" r="2.2" fill="#3B5788" stroke="none"/></svg>
-        <span>[Foto principal]</span>
-      </div>
-    </div>
+    <img class="hero-img" src="/img/portada.webp" alt="Tiramisú de Punto Nieve servido en plato blanco" width="560" height="700" fetchpriority="high">
   </div>
 </div>
 
@@ -190,7 +186,7 @@ footer{border-top:1px solid var(--line)}
         <p class="eyebrow">La vitrina</p>
         <h2 class="h2">Nuestras especialidades</h2>
       </div>
-      <p>Cada pedido se prepara para tu fecha. Sabores, tamaños y decoración se ajustan a lo que necesitas.</p>
+      <p class="head-note">PARA CONSERVAR LA FRESCURA Y SABOR, CADA POSTRE SE PREPARA ESPECIAL PARA TU FECHA. LOS SABORES, RELLENOS Y DECORACIÓN SE AJUSTAN A TU GUSTO!</p>
     </div>
     <div class="cards">
       <article class="card">
