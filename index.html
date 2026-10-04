@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Punto Nieve Bakery · Repostería artesanal por encargo</title>
+<meta name="description" content="Pasteles, cheesecakes y postres hechos a mano. Agenda tu pedido en línea con Punto Nieve Bakery.">
+<meta name="theme-color" content="#0A1424">
+<meta property="og:title" content="Punto Nieve Bakery">
+<meta property="og:description" content="Repostería artesanal por encargo. Agenda tu pedido en línea.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23CFE0F5' stroke-width='1.6' stroke-linecap='round'%3E%3Crect width='24' height='24' fill='%230A1424' stroke='none'/%3E%3Cline x1='12' y1='3' x2='12' y2='21'/%3E%3Cline x1='4.2' y1='7.5' x2='19.8' y2='16.5'/%3E%3Cline x1='4.2' y1='16.5' x2='19.8' y2='7.5'/%3E%3Ccircle cx='12' cy='12' r='2.2' fill='%23CFE0F5' stroke='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A1424; --bg-2:#0F1C33; --panel:#13213B;
+  --line:#1A2A47; --line-2:#22355A; --line-3:#2A3F66; --line-4:#3B5788;
+  --text:#EAF0F8; --muted:#A3B1C7; --faint:#7F8DA6;
+  --accent:#CFE0F5;
+  --serif:'Cormorant Garamond', Georgia, serif;
+  --sans:'Jost', system-ui, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:#fff}
+img{max-width:100%;display:block}
+.wrap{max-width:1200px;margin:0 auto;padding-left:24px;padding-right:24px}
+.eyebrow{margin:0 0 20px;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--accent)}
+.h2{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(36px,4.4vw,56px);line-height:1.08}
+.muted{color:var(--muted)}
+section{border-top:1px solid var(--line)}
+.section{padding-top:120px;padding-bottom:120px}
+
+/* Header */
+header.site{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;padding-top:28px;padding-bottom:28px}
+.brand{display:flex;align-items:center;gap:14px;color:var(--text)}
+.brand-name{display:flex;flex-direction:column;line-height:1}
+.brand-name b{font-family:var(--serif);font-size:26px;font-weight:500;letter-spacing:.02em}
+.brand-name small{font-size:10px;letter-spacing:.42em;color:var(--muted);margin-top:4px}
+nav.main{display:flex;flex-wrap:wrap;align-items:center;gap:32px;font-size:14px;letter-spacing:.08em}
+nav.main a{color:var(--muted)}
+nav.main a:hover{color:var(--text)}
+nav.main a.cta{color:var(--text);border:1px solid var(--line-4);padding:12px 22px;letter-spacing:.14em;font-size:12px;text-transform:uppercase}
+nav.main a.cta:hover{border-color:var(--accent)}
+
+/* Hero */
+.hero{display:flex;flex-wrap:wrap;align-items:center;gap:64px;padding-top:64px;padding-bottom:120px}
+.hero-copy{flex:1 1 480px;min-width:0}
+.hero h1{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(46px,6vw,84px);line-height:1.02;letter-spacing:-.01em}
+.hero h1 em{color:var(--accent)}
+.hero p.lead{margin:32px 0 0;max-width:500px;font-size:18px;line-height:1.7;color:var(--muted)}
+.actions{display:flex;flex-wrap:wrap;gap:16px;margin-top:44px}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--accent);color:var(--bg);padding:18px 32px;min-height:56px;font:inherit;font-size:13px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;border:0;cursor:pointer;transition:opacity .2s}
+.btn:hover{opacity:.88;color:var(--bg)}
+.link-line{color:var(--text);padding:18px 8px;font-size:13px;letter-spacing:.18em;text-transform:uppercase;display:inline-flex;align-items:center;border-bottom:1px solid var(--line-4)}
+.traits{display:flex;flex-wrap:wrap;gap:28px;margin-top:64px;font-size:13px;letter-spacing:.12em;color:var(--muted)}
+.traits i{font-style:normal;color:var(--line-4)}
+.hero-art{flex:1 1 380px;min-width:0;display:flex;justify-content:center}
+.frame{width:100%;max-width:440px;aspect-ratio:4/5;border:1px solid var(--line-2);padding:18px}
+.ph{width:100%;height:100%;background:var(--panel);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:var(--faint);font-size:12px;letter-spacing:.16em;text-transform:uppercase;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover}
+
+/* Products */
+.head-row{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:64px}
+.head-row p{margin:0;max-width:380px;font-size:16px;line-height:1.7;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
+.card{border:1px solid var(--line-2);padding:20px;display:flex;flex-direction:column;gap:20px;transition:border-color .3s}
+.card:hover{border-color:var(--line-4)}
+.card .ph{aspect-ratio:4/3;height:auto}
+.card h3{margin:0;font-family:var(--serif);font-weight:500;font-size:28px}
+.card p{margin:0;font-size:15px;line-height:1.65;color:var(--muted);flex-grow:1}
+.card-foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:16px;font-size:14px}
+.card-foot a{letter-spacing:.14em;text-transform:uppercase;font-size:12px;padding:12px 0}
+
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:48px;margin-top:64px}
+.step{border-top:1px solid var(--line-4);padding-top:28px}
+.step span{font-family:var(--serif);font-size:44px;color:var(--accent)}
+.step h3{margin:16px 0 12px;font-weight:400;font-size:20px;letter-spacing:.04em}
+.step p{margin:0;font-size:15px;line-height:1.7;color:var(--muted)}
+
+/* Order */
+#pedidos{background:var(--bg-2)}
+.order{display:flex;flex-wrap:wrap;gap:64px}
+.order-info{flex:1 1 320px;min-width:0}
+.order-info > p{margin:24px 0 40px;font-size:16px;line-height:1.7;color:var(--muted)}
+.notes{display:flex;flex-direction:column;gap:20px;font-size:15px;line-height:1.6}
+.notes div{display:flex;gap:16px;border-top:1px solid var(--line-2);padding-top:20px}
+.notes b{font-weight:300;color:var(--accent)}
+.order-box{flex:999 1 560px;min-width:0;background:var(--bg);border:1px solid var(--line-2);padding:clamp(24px,4vw,48px)}
+form{display:flex;flex-direction:column;gap:28px}
+.row{display:flex;flex-wrap:wrap;gap:20px}
+.row > div{flex:1 1 200px;min-width:0}
+.row.three > div{flex:1 1 160px}
+label,legend{display:block;margin-bottom:10px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+fieldset{border:0;margin:0;padding:0}
+legend{padding:0;margin-bottom:12px}
+.field{font:inherit;font-size:16px;font-weight:300;width:100%;background:var(--bg);color:var(--text);border:1px solid var(--line-3);border-radius:2px;padding:14px 16px;min-height:52px;color-scheme:dark;outline:none;transition:border-color .2s}
+.field:focus{border-color:var(--accent)}
+.field::placeholder{color:var(--faint)}
+.field[aria-invalid="true"]{border-color:#E8A87C}
+select.field{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 22px) 50%,calc(100% - 16px) 50%;background-size:6px 6px,6px 6px;background-repeat:no-repeat;padding-right:44px}
+textarea.field{resize:vertical;line-height:1.6}
+.pills{display:flex;flex-wrap:wrap;gap:10px}
+.pill{font:inherit;font-size:14px;padding:12px 18px;min-height:46px;border:1px solid var(--line-3);border-radius:999px;background:transparent;color:var(--text);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.pill:hover{border-color:var(--accent)}
+.pill[aria-pressed="true"]{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+.alert{margin:0;padding:14px 16px;border:1px solid #E8A87C;color:#F3C9A9;font-size:14px;line-height:1.5}
+.small{margin:0;font-size:13px;color:var(--faint);text-align:center}
+[hidden]{display:none !important}
+
+.done{display:flex;flex-direction:column;align-items:flex-start;gap:24px;padding:16px 0}
+.done h3{margin:0;font-family:var(--serif);font-weight:400;font-size:44px;line-height:1.1}
+.done > p{margin:0;font-size:16px;line-height:1.7;color:var(--muted);max-width:460px}
+.summary{width:100%;border-top:1px solid var(--line-2)}
+.summary div{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding:16px 0;border-bottom:1px solid var(--line);font-size:15px}
+.summary dt{color:var(--muted);letter-spacing:.08em}
+.summary dd{margin:0;text-align:right}
+.btn-ghost{font:inherit;background:transparent;color:var(--text);border:1px solid var(--line-4);padding:14px 24px;min-height:48px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;cursor:pointer}
+.btn-ghost:hover{border-color:var(--accent)}
+
+/* Footer */
+footer{border-top:1px solid var(--line)}
+.foot{padding-top:96px;padding-bottom:40px}
+.foot-cols{display:flex;flex-wrap:wrap;gap:48px;justify-content:space-between}
+.foot-cols > div{flex:1 1 180px;min-width:0}
+.foot-cols > div:first-child{flex-basis:280px}
+.foot-cols p{margin:0;font-size:15px;line-height:1.8;color:var(--muted)}
+.foot-cols .eyebrow{margin-bottom:16px;letter-spacing:.24em}
+.foot-bottom{margin-top:80px;padding-top:24px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13px;color:var(--faint)}
+.foot-bottom a{color:var(--muted)}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+@media (max-width:640px){
+  nav.main{gap:20px}
+  nav.main a:not(.cta){display:none}
+  .section{padding-top:88px;padding-bottom:88px}
+  .hero{padding-top:32px;padding-bottom:88px}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header class="site">
+  <a href="#inicio" class="brand" aria-label="Punto Nieve Bakery, inicio">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" style="color:var(--accent)"><line x1="12" y1="2" x2="12" y2="22"/><line x1="3.34" y1="7" x2="20.66" y2="17"/><line x1="3.34" y1="17" x2="20.66" y2="7"/><circle cx="12" cy="12" r="2.2" fill="currentColor" stroke="none"/></svg>
+    <span class="brand-name"><b>Punto Nieve</b><small>BAKERY</small></span>
+  </a>
+  <nav class="main" aria-label="Principal">
+    <a href="#productos">Productos</a>
+    <a href="#como-funciona">Cómo funciona</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#pedidos" class="cta">Agendar pedido</a>
+  </nav>
+</header>
+</div>
+
+<main>
+<div class="wrap hero" id="inicio">
+  <div class="hero-copy">
+    <p class="eyebrow">Repostería artesanal · Por encargo</p>
+    <h1>Dulces hechos a mano, <em>listos</em> para tu fecha.</h1>
+    <p class="lead">Pasteles, cheesecakes y postres preparados en pequeñas tandas. Elige lo que quieres, agenda el día y nosotros nos encargamos del resto.</p>
+    <div class="actions">
+      <a href="#pedidos" class="btn">Agendar pedido</a>
+      <a href="#productos" class="link-line">Ver productos</a>
+    </div>
+    <div class="traits"><span>Hecho a mano</span><i>·</i><span>Por encargo</span><i>·</i><span>Entrega o recogida</span></div>
+  </div>
+  <div class="hero-art">
+    <div class="frame">
+      <!-- Reemplaza este bloque por: <div class="ph"><img src="/img/portada.jpg" alt="..."></div> -->
+      <div class="ph">
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#3B5788" stroke-width=".8" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="2" x2="12" y2="22"/><line x1="3.34" y1="7" x2="20.66" y2="17"/><line x1="3.34" y1="17" x2="20.66" y2="7"/><circle cx="12" cy="12" r="2.2" fill="#3B5788" stroke="none"/></svg>
+        <span>[Foto principal]</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="productos">
+  <div class="wrap section">
+    <div class="head-row">
+      <div>
+        <p class="eyebrow">La vitrina</p>
+        <h2 class="h2">Nuestras especialidades</h2>
+      </div>
+      <p>Cada pedido se prepara para tu fecha. Sabores, tamaños y decoración se ajustan a lo que necesitas.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <div class="ph">[Foto]</div>
+        <h3>Pasteles de celebración</h3>
+        <p>Para cumpleaños, bodas y fechas especiales. Diseño y sabor a tu medida.</p>
+        <div class="card-foot"><span class="muted">Desde [PRECIO]</span><a href="#pedidos" data-pick="pastel">Pedir →</a></div>
+      </article>
+      <article class="card">
+        <div class="ph">[Foto]</div>
+        <h3>Cheesecakes</h3>
+        <p>Cremosos, horneados con calma. Clásico o con la fruta de tu elección.</p>
+        <div class="card-foot"><span class="muted">Desde [PRECIO]</span><a href="#pedidos" data-pick="cheesecake">Pedir →</a></div>
+      </article>
+      <article class="card">
+        <div class="ph">[Foto]</div>
+        <h3>Tartas de temporada</h3>
+        <p>Masa quebrada y rellenos que cambian según la fruta del momento.</p>
+        <div class="card-foot"><span class="muted">Desde [PRECIO]</span><a href="#pedidos" data-pick="tarta">Pedir →</a></div>
+      </article>
+      <article class="card">
+        <div class="ph">[Foto]</div>
+        <h3>Cajas de postres</h3>
+        <p>Una selección de piezas individuales para regalar o compartir.</p>
+        <div class="card-foot"><span class="muted">Desde [PRECIO]</span><a href="#pedidos" data-pick="caja">Pedir →</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="como-funciona">
+  <div class="wrap section">
+    <p class="eyebrow">Cómo funciona</p>
+    <h2 class="h2">Tres pasos, sin complicaciones</h2>
+    <div class="steps">
+      <div class="step"><span>01</span><h3>Elige tu postre</h3><p>Escoge el producto, el tamaño y cuéntanos sabores o detalles de decoración.</p></div>
+      <div class="step"><span>02</span><h3>Agenda la fecha</h3><p>Selecciona el día y la franja horaria. Recibimos pedidos con al menos 48 horas de anticipación.</p></div>
+      <div class="step"><span>03</span><h3>Recoge o recibe</h3><p>Te confirmamos disponibilidad y total. Pasas por tu pedido o lo llevamos a tu puerta.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="pedidos">
+  <div class="wrap section order">
+    <div class="order-info">
+      <p class="eyebrow">Agenda tu pedido</p>
+      <h2 class="h2">Reserva tu fecha</h2>
+      <p>Completa el formulario y te escribiremos para confirmar los detalles de tu pedido.</p>
+      <div class="notes">
+        <div><b>—</b><span>Pedidos con mínimo 48 horas de anticipación.</span></div>
+        <div><b>—</b><span>Confirmamos disponibilidad y total por WhatsApp.</span></div>
+        <div><b>—</b><span>Anticipo de [X]% para reservar la fecha.</span></div>
+      </div>
+    </div>
+
+    <div class="order-box">
+      <form id="order-form" novalidate>
+        <div class="row">
+          <div>
+            <label for="f-name">Nombre completo *</label>
+            <input id="f-name" name="name" class="field" type="text" autocomplete="name" placeholder="Tu nombre" required>
+          </div>
+          <div>
+            <label for="f-phone">Teléfono / WhatsApp *</label>
+            <input id="f-phone" name="phone" class="field" type="tel" autocomplete="tel" placeholder="+504 0000 0000" required>
+          </div>
+        </div>
+
+        <div>
+          <label for="f-email">Correo electrónico (opcional)</label>
+          <input id="f-email" name="email" class="field" type="email" autocomplete="email" placeholder="tucorreo@ejemplo.com">
+        </div>
+
+        <fieldset>
+          <legend>Producto *</legend>
+          <div class="pills" data-group="product">
+            <button type="button" class="pill" data-value="pastel" aria-pressed="false">Pastel de celebración</button>
+            <button type="button" class="pill" data-value="cheesecake" aria-pressed="false">Cheesecake</button>
+            <button type="button" class="pill" data-value="tarta" aria-pressed="false">Tarta de temporada</button>
+            <button type="button" class="pill" data-value="caja" aria-pressed="false">Caja de postres</button>
+            <button type="button" class="pill" data-value="otro" aria-pressed="false">Otro</button>
+          </div>
+        </fieldset>
+
+        <div class="row three">
+          <div>
+            <label for="f-size">Porciones</label>
+            <select id="f-size" name="size" class="field">
+              <option value="">Seleccionar</option>
+              <option>6–8 porciones</option>
+              <option>10–12 porciones</option>
+              <option>15–20 porciones</option>
+              <option>25 o más porciones</option>
+            </select>
+          </div>
+          <div>
+            <label for="f-date">Fecha de entrega *</label>
+            <input id="f-date" name="date" class="field" type="date" required>
+          </div>
+          <div>
+            <label for="f-time">Horario *</label>
+            <select id="f-time" name="time" class="field" required>
+              <option value="">Seleccionar</option>
+              <option>9:00 – 11:00</option>
+              <option>11:00 – 13:00</option>
+              <option>14:00 – 16:00</option>
+              <option>16:00 – 18:00</option>
+            </select>
+          </div>
+        </div>
+
+        <fieldset>
+          <legend>Entrega</legend>
+          <div class="pills" data-group="delivery">
+            <button type="button" class="pill" data-value="recoger" aria-pressed="true">Recoger en tienda</button>
+            <button type="button" class="pill" data-value="domicilio" aria-pressed="false">Entrega a domicilio</button>
+          </div>
+        </fieldset>
+
+        <div id="address-wrap" hidden>
+          <label for="f-address">Dirección de entrega</label>
+          <input id="f-address" name="address" class="field" type="text" autocomplete="street-address" placeholder="Colonia, calle, referencia">
+        </div>
+
+        <div>
+          <label for="f-notes">Detalles del pedido</label>
+          <textarea id="f-notes" name="notes" class="field" rows="4" placeholder="Sabor, relleno, mensaje en el pastel, alergias…"></textarea>
+        </div>
+
+        <p id="form-error" class="alert" role="alert" hidden>Completa nombre, teléfono, producto, fecha y horario para agendar tu pedido.</p>
+
+        <button type="submit" class="btn">Agendar pedido</button>
+        <p class="small">Tu pedido queda reservado al confirmar el anticipo.</p>
+      </form>
+
+      <div id="order-done" class="done" hidden>
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" aria-hidden="true" style="color:var(--accent)"><line x1="12" y1="2" x2="12" y2="22"/><line x1="3.34" y1="7" x2="20.66" y2="17"/><line x1="3.34" y1="17" x2="20.66" y2="7"/><circle cx="12" cy="12" r="2.2" fill="currentColor" stroke="none"/></svg>
+        <p class="eyebrow" style="margin:0">Solicitud recibida · <span id="d-code"></span></p>
+        <h3 tabindex="-1" id="d-title">Gracias.</h3>
+        <p id="d-msg"></p>
+        <dl class="summary" id="d-summary"></dl>
+        <a id="d-wa" class="btn" href="#" target="_blank" rel="noopener" hidden>Enviar pedido por WhatsApp</a>
+        <button type="button" class="btn-ghost" id="d-reset">Agendar otro pedido</button>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer id="contacto">
+  <div class="wrap foot">
+    <div class="foot-cols">
+      <div>
+        <p style="font-family:var(--serif);font-size:36px;color:var(--text);line-height:1.2">Punto Nieve</p>
+        <p style="font-size:11px;letter-spacing:.42em;margin-top:6px">BAKERY</p>
+        <p style="margin-top:24px;max-width:280px">Repostería artesanal por encargo.</p>
+      </div>
+      <div><p class="eyebrow">Visítanos</p><p>[DIRECCIÓN]<br>[CIUDAD]</p></div>
+      <div><p class="eyebrow">Horario</p><p>[DÍAS]<br>[HORAS]</p></div>
+      <div><p class="eyebrow">Contacto</p><p>WhatsApp [NÚMERO]<br>Instagram [@USUARIO]</p></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> Punto Nieve Bakery</span>
+      <a href="#inicio">Volver arriba ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ===== Configuración =====
+   Escribe aquí el número de WhatsApp del negocio (solo dígitos, con código de país, p. ej. "50499998888").
+   Si lo dejas vacío, el pedido solo muestra la confirmación en pantalla. */
+var WHATSAPP_NUMBER = "";
+var MIN_DAYS_AHEAD = 2;
+
+(function () {
+  var form = document.getElementById('order-form');
+  var done = document.getElementById('order-done');
+  var errorBox = document.getElementById('form-error');
+  var addressWrap = document.getElementById('address-wrap');
+  var state = { product: '', delivery: 'recoger' };
+  var labels = {
+    product: { pastel: 'Pastel de celebración', cheesecake: 'Cheesecake', tarta: 'Tarta de temporada', caja: 'Caja de postres', otro: 'Otro' },
+    delivery: { recoger: 'Recoger en tienda', domicilio: 'Entrega a domicilio' }
+  };
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Fecha mínima
+  var d = new Date(); d.setDate(d.getDate() + MIN_DAYS_AHEAD);
+  var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+  document.getElementById('f-date').min = d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+
+  function setPill(group, value) {
+    state[group] = value;
+    document.querySelectorAll('[data-group="' + group + '"] .pill').forEach(function (b) {
+      b.setAttribute('aria-pressed', b.dataset.value === value ? 'true' : 'false');
+    });
+    if (group === 'delivery') addressWrap.hidden = value !== 'domicilio';
+    errorBox.hidden = true;
+  }
+
+  document.querySelectorAll('.pills').forEach(function (g) {
+    g.addEventListener('click', function (e) {
+      var b = e.target.closest('.pill');
+      if (b) setPill(g.dataset.group, b.dataset.value);
+    });
+  });
+
+  document.querySelectorAll('[data-pick]').forEach(function (a) {
+    a.addEventListener('click', function () { setPill('product', a.dataset.pick); });
+  });
+
+  form.addEventListener('input', function () { errorBox.hidden = true; });
+
+  function prettyDate(v) {
+    try {
+      return new Date(v + 'T12:00:00').toLocaleDateString('es-HN', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+    } catch (e) { return v; }
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = form.elements;
+    var data = {
+      name: f.name.value.trim(), phone: f.phone.value.trim(), email: f.email.value.trim(),
+      size: f.size.value, date: f.date.value, time: f.time.value,
+      address: f.address.value.trim(), notes: f.notes.value.trim()
+    };
+    var missing = [];
+    ['name', 'phone', 'date', 'time'].forEach(function (k) {
+      var bad = !data[k];
+      f[k].setAttribute('aria-invalid', bad ? 'true' : 'false');
+      if (bad) missing.push(k);
+    });
+    if (!state.product) missing.push('product');
+    if (missing.length) { errorBox.hidden = false; errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' }); return; }
+
+    var code = 'PN-' + Math.floor(1000 + Math.random() * 9000);
+    var product = labels.product[state.product] + (data.size ? ' · ' + data.size : '');
+    var delivery = labels.delivery[state.delivery] + (state.delivery === 'domicilio' && data.address ? ' · ' + data.address : '');
+    var rows = [['Producto', product], ['Fecha', prettyDate(data.date)], ['Horario', data.time], ['Entrega', delivery]];
+    if (data.notes) rows.push(['Detalles', data.notes]);
+
+    var dl = document.getElementById('d-summary');
+    dl.innerHTML = '';
+    rows.forEach(function (r) {
+      var div = document.createElement('div');
+      var dt = document.createElement('dt'); dt.textContent = r[0];
+      var dd = document.createElement('dd'); dd.textContent = r[1];
+      div.appendChild(dt); div.appendChild(dd); dl.appendChild(div);
+    });
+    document.getElementById('d-code').textContent = code;
+    document.getElementById('d-title').textContent = 'Gracias, ' + data.name.split(' ')[0] + '.';
+
+    var wa = document.getElementById('d-wa');
+    if (WHATSAPP_NUMBER) {
+      var msg = 'Hola, Punto Nieve Bakery. Quiero agendar un pedido (' + code + '):\n' +
+        rows.map(function (r) { return '• ' + r[0] + ': ' + r[1]; }).join('\n') +
+        '\n• Nombre: ' + data.name + '\n• Teléfono: ' + data.phone + (data.email ? '\n• Correo: ' + data.email : '');
+      wa.href = 'https://wa.me/' + WHATSAPP_NUMBER.replace(/\D/g, '') + '?text=' + encodeURIComponent(msg);
+      wa.hidden = false;
+      document.getElementById('d-msg').textContent = 'Toca el botón para enviarnos tu pedido por WhatsApp. Te confirmaremos disponibilidad, total y anticipo.';
+    } else {
+      wa.hidden = true;
+      document.getElementById('d-msg').textContent = 'Te escribiremos al ' + data.phone + ' para confirmar disponibilidad, total y anticipo.';
+    }
+
+    form.hidden = true;
+    done.hidden = false;
+    document.getElementById('d-title').focus();
+  });
+
+  document.getElementById('d-reset').addEventListener('click', function () {
+    form.reset();
+    setPill('product', '');
+    setPill('delivery', 'recoger');
+    form.querySelectorAll('[aria-invalid]').forEach(function (el) { el.removeAttribute('aria-invalid'); });
+    done.hidden = true;
+    form.hidden = false;
+    document.getElementById('f-name').focus();
+  });
+})();
+</script>
+</body>
+</html>
