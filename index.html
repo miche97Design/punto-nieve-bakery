@@ -4,182 +4,309 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Punto Nieve Bakery · Repostería artesanal por encargo</title>
-<meta name="description" content="Pasteles, cheesecakes y postres hechos a mano. Agenda tu pedido en línea con Punto Nieve Bakery.">
+<meta name="description" content="Postres 100% artesanales, libres de conservantes añadidos. Agenda tu pedido o cotiza tu evento con Punto Nieve Bakery.">
 <meta name="theme-color" content="#0A1424">
 <meta property="og:title" content="Punto Nieve Bakery">
-<meta property="og:description" content="Repostería artesanal por encargo. Agenda tu pedido en línea.">
+<meta property="og:description" content="Ingredientes premium y sabores reales. Agenda tu pedido en línea.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="/img/portada.webp">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23CFE0F5' stroke-width='1.6' stroke-linecap='round'%3E%3Crect width='24' height='24' fill='%230A1424' stroke='none'/%3E%3Cline x1='12' y1='3' x2='12' y2='21'/%3E%3Cline x1='4.2' y1='7.5' x2='19.8' y2='16.5'/%3E%3Cline x1='4.2' y1='16.5' x2='19.8' y2='7.5'/%3E%3Ccircle cx='12' cy='12' r='2.2' fill='%23CFE0F5' stroke='none'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0A1424; --bg-2:#0F1C33; --panel:#13213B;
+  --navy:#0A1424; --navy-2:#0F1C33; --panel:#13213B;
   --line:#1A2A47; --line-2:#22355A; --line-3:#2A3F66; --line-4:#3B5788;
   --text:#EAF0F8; --muted:#A3B1C7; --faint:#7F8DA6;
   --accent:#CFE0F5;
+  --snow:#F4F6FA; --snow-2:#E8EDF5; --ink:#101B3A; --ink-2:#4A5878; --ink-line:#D5DDEA; --brand:#141A54;
   --serif:'Cormorant Garamond', Georgia, serif;
   --sans:'Jost', system-ui, sans-serif;
+  --deco:'Cinzel Decorative', Georgia, serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased}
-a{color:var(--accent);text-decoration:none}
-a:hover{color:#fff}
+body{margin:0;background:var(--navy);color:var(--text);font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 .wrap{max-width:1200px;margin:0 auto;padding-left:24px;padding-right:24px}
-.eyebrow{margin:0 0 20px;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--accent)}
+.eyebrow{margin:0 0 18px;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--accent)}
 .h2{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(36px,4.4vw,56px);line-height:1.08}
+.light{background:var(--snow);color:var(--ink)}
+.light .eyebrow{color:#1E3A6E}
+.light .muted{color:var(--ink-2)}
 .muted{color:var(--muted)}
-section{border-top:1px solid var(--line)}
-.section{padding-top:120px;padding-bottom:120px}
+.section{padding-top:110px;padding-bottom:110px}
+.center{text-align:center}
+
+/* Pills */
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:14px 28px;min-height:50px;font:inherit;font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;border:1px solid transparent;cursor:pointer;transition:transform .2s,opacity .2s,background .2s,color .2s,border-color .2s}
+.pill:hover{transform:translateY(-1px)}
+.pill-light{background:var(--accent);color:var(--navy)}
+.pill-dark{background:var(--brand);color:#fff}
+.pill-ghost{background:transparent;color:var(--text);border-color:var(--line-4)}
+.pill-ghost:hover{border-color:var(--accent)}
+.pill-ghost-ink{background:transparent;color:var(--ink);border-color:#9FB0CC}
+.pill-ghost-ink:hover{border-color:var(--brand)}
+.pill-sm{padding:10px 20px;min-height:44px;font-size:12px}
+
+/* Top bar */
+.topbar{background:var(--navy-2);font-size:12px;letter-spacing:.08em;color:var(--muted)}
+.topbar .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-top:10px;padding-bottom:10px}
+.topbar a:hover{color:var(--text)}
+.topbar .links{display:flex;flex-wrap:wrap;gap:8px 20px}
 
 /* Header */
-header.site{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;padding-top:28px;padding-bottom:28px}
-.brand{display:flex;align-items:center;gap:14px;color:var(--text)}
-.brand-name{display:flex;flex-direction:column;line-height:1}
-.brand-name b{font-family:'Cinzel Decorative', Georgia, serif;font-size:22px;font-weight:700;letter-spacing:.04em}
-.brand-name small{font-size:10px;letter-spacing:.42em;color:var(--muted);margin-top:4px}
-nav.main{display:flex;flex-wrap:wrap;align-items:center;gap:32px;font-size:14px;letter-spacing:.08em}
-nav.main a{color:var(--muted)}
-nav.main a:hover{color:var(--text)}
-nav.main a.cta{color:var(--text);border:1px solid var(--line-4);padding:12px 22px;letter-spacing:.14em;font-size:12px;text-transform:uppercase}
-nav.main a.cta:hover{border-color:var(--accent)}
+header.site{background:var(--snow);color:var(--ink);border-bottom:1px solid var(--ink-line)}
+header.site .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-top:14px;padding-bottom:14px}
+.brand{display:flex;align-items:center;gap:14px}
+.brand .logo{width:80px;height:80px;display:block}
+nav.main{display:flex;flex-wrap:wrap;align-items:center;gap:30px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:400}
+nav.main a.lnk{color:var(--ink-2);padding:10px 0}
+nav.main a.lnk:hover{color:var(--brand)}
 
 /* Hero */
-.hero{display:flex;flex-wrap:wrap;align-items:center;gap:64px;padding-top:64px;padding-bottom:120px}
-.hero-copy{flex:1 1 480px;min-width:0}
-.hero h1{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(46px,6vw,84px);line-height:1.02;letter-spacing:-.01em}
+.hero{position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 40%,#16284A 0%,var(--navy) 70%);min-height:760px;display:flex;align-items:center;justify-content:center;padding:80px 24px}
+.hero-card{position:relative;z-index:2;max-width:640px;text-align:center;background:rgba(15,28,51,.86);border:1px solid var(--line-2);padding:56px 48px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;animation:rise 1s .2s cubic-bezier(.2,.8,.2,1) forwards}
+.hero h1{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(40px,4.8vw,66px);line-height:1.04;letter-spacing:-.01em}
 .hero h1 em{color:var(--accent)}
-.hero p.lead{margin:32px 0 0;max-width:500px;font-size:18px;line-height:1.7;color:var(--muted)}
-.actions{display:flex;flex-wrap:wrap;gap:16px;margin-top:44px}
-.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--accent);color:var(--bg);padding:18px 32px;min-height:56px;font:inherit;font-size:13px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;border:0;cursor:pointer;transition:opacity .2s}
-.btn:hover{opacity:.88;color:var(--bg)}
-.link-line{color:var(--text);padding:18px 8px;font-size:13px;letter-spacing:.18em;text-transform:uppercase;display:inline-flex;align-items:center;border-bottom:1px solid var(--line-4)}
-.traits{display:flex;flex-wrap:wrap;gap:28px;margin-top:64px;font-size:13px;letter-spacing:.12em;color:var(--muted)}
+.hero .lead{margin:24px auto 0;max-width:440px;font-size:17px;line-height:1.7;color:var(--muted)}
+.hero .actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:36px}
+.traits{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;margin-top:32px;font-size:12px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
 .traits i{font-style:normal;color:var(--line-4)}
-.hero-art{flex:1 1 380px;min-width:0;display:flex;justify-content:center}
-.frame{width:100%;max-width:440px;aspect-ratio:4/5;border:1px solid var(--line-2);padding:18px}
-.ph{width:100%;height:100%;background:var(--panel);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:var(--faint);font-size:12px;letter-spacing:.16em;text-transform:uppercase;overflow:hidden}
-.ph img{width:100%;height:100%;object-fit:cover}
-.hero-img{width:100%;max-width:520px;height:auto;aspect-ratio:4/5;object-fit:cover;display:block}
-.head-row p.head-note{font-size:12px;font-weight:500;letter-spacing:.06em}
+.float{--k:1;position:absolute;z-index:1;width:calc(var(--s) * var(--k));aspect-ratio:1;opacity:0;animation:pop 1s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:var(--d)}
+.float::before{content:"";position:absolute;inset:-14px;border:1px dashed rgba(207,224,245,.35);border-radius:50%;animation:spin 40s linear infinite}
+.float img{width:100%;height:100%;object-fit:cover;border-radius:50%;border:6px solid var(--snow);box-shadow:0 24px 50px rgba(0,0,0,.45);animation:bob 7s ease-in-out infinite;animation-delay:calc(var(--d) + 1s)}
+.f1{--s:220px;--r:-5deg;--d:.15s;left:4%;top:8%}
+.f2{--s:160px;--r:4deg;--d:.4s;left:11%;top:50%}
+.f3{--s:180px;--r:-3deg;--d:.65s;left:3%;top:73%}
+.f4{--s:230px;--r:5deg;--d:.3s;right:4%;top:7%}
+.f5{--s:160px;--r:-4deg;--d:.55s;right:11%;top:50%}
+.f6{--s:190px;--r:3deg;--d:.8s;right:3%;top:72%}
+@keyframes pop{from{opacity:0;transform:scale(.55) rotate(-10deg)}to{opacity:1;transform:none}}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(var(--r))}50%{transform:translateY(-16px) rotate(calc(var(--r) * -1))}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
 
-/* Products */
-.head-row{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:64px}
-.head-row p{margin:0;max-width:380px;font-size:16px;line-height:1.7;color:var(--muted)}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
-.card{border:1px solid var(--line-2);padding:20px;display:flex;flex-direction:column;gap:20px;transition:border-color .3s}
-.card:hover{border-color:var(--line-4)}
-.card .ph{aspect-ratio:4/3;height:auto}
-.card h3{margin:0;font-family:var(--serif);font-weight:500;font-size:28px}
-.card p{margin:0;font-size:15px;line-height:1.65;color:var(--muted);flex-grow:1}
-.card-foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:16px;font-size:14px}
-.card-foot a{letter-spacing:.14em;text-transform:uppercase;font-size:12px;padding:12px 0}
+/* Why */
+.why-icon{width:44px;height:44px;margin:0 auto 18px;color:var(--brand)}
+.why-intro{margin:20px auto 0;max-width:620px;font-size:16px;line-height:1.7}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:56px}
+.why-card{background:#fff;border:1px solid var(--ink-line);display:flex;flex-direction:column;text-align:center;box-shadow:0 10px 30px rgba(16,27,58,.06)}
+.why-card img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.why-card .body{padding:28px 24px 30px;display:flex;flex-direction:column;align-items:center;gap:12px;flex-grow:1}
+.why-card h3{margin:0;font-family:var(--serif);font-weight:600;font-size:28px;color:var(--ink)}
+.why-card p{margin:0 0 8px;font-size:15px;line-height:1.65;color:var(--ink-2);flex-grow:1}
+
+/* Specialties */
+.head-row{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:56px}
+.head-note{margin:0;max-width:420px;font-size:12px;font-weight:500;line-height:1.8;letter-spacing:.06em;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px}
+.card{border:1px solid var(--line-2);background:var(--navy-2);display:flex;flex-direction:column;transition:border-color .3s,transform .3s}
+.card:hover{border-color:var(--line-4);transform:translateY(-3px)}
+.card .pic{aspect-ratio:1/1;overflow:hidden;background:var(--panel)}
+.card .pic img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.card:hover .pic img{transform:scale(1.05)}
+.card .ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--faint);font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+.card .body{padding:20px 20px 22px;display:flex;flex-direction:column;gap:10px;flex-grow:1}
+.card h3{margin:0;font-family:var(--serif);font-weight:500;font-size:26px;line-height:1.15}
+.card p{margin:0;font-size:14.5px;line-height:1.6;color:var(--muted);flex-grow:1}
+.card .foot{display:flex;justify-content:space-between;align-items:center;gap:10px;border-top:1px solid var(--line);padding-top:14px;margin-top:6px;font-size:14px}
+
+/* Events */
+.ev-split{display:flex;flex-wrap:wrap;align-items:center;gap:56px}
+.ev-copy{flex:1 1 380px;min-width:0}
+.ev-copy p{margin:22px 0 32px;font-size:16px;line-height:1.75;max-width:480px}
+.ev-pics{flex:1 1 420px;min-width:0;display:grid;grid-template-columns:1.25fr 1fr;gap:16px}
+.ev-pics img{width:100%;height:100%;aspect-ratio:4/5;object-fit:cover;border:1px solid var(--ink-line)}
+.ev-pics img:last-child{margin-top:48px}
+.ev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:72px}
+.ev-card{background:#fff;border:1px solid var(--ink-line);padding:30px 28px;display:flex;flex-direction:column;gap:12px;transition:border-color .3s,box-shadow .3s}
+.ev-card:hover{border-color:#9FB0CC;box-shadow:0 12px 30px rgba(16,27,58,.08)}
+.ev-card svg{width:34px;height:34px;color:var(--brand)}
+.ev-card h3{margin:6px 0 0;font-family:var(--serif);font-weight:600;font-size:27px;color:var(--ink)}
+.ev-card p{margin:0;font-size:15px;line-height:1.65;color:var(--ink-2);flex-grow:1}
+.ev-card a{align-self:flex-start;margin-top:6px;font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--brand);padding:10px 0;border-bottom:1px solid #9FB0CC}
 
 /* Steps */
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:48px;margin-top:64px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:48px;margin-top:56px}
 .step{border-top:1px solid var(--line-4);padding-top:28px}
 .step span{font-family:var(--serif);font-size:44px;color:var(--accent)}
 .step h3{margin:16px 0 12px;font-weight:400;font-size:20px;letter-spacing:.04em}
 .step p{margin:0;font-size:15px;line-height:1.7;color:var(--muted)}
 
 /* Order */
-#pedidos{background:var(--bg-2)}
+#pedidos{background:var(--navy-2)}
 .order{display:flex;flex-wrap:wrap;gap:64px}
 .order-info{flex:1 1 320px;min-width:0}
 .order-info > p{margin:24px 0 40px;font-size:16px;line-height:1.7;color:var(--muted)}
 .notes{display:flex;flex-direction:column;gap:20px;font-size:15px;line-height:1.6}
 .notes div{display:flex;gap:16px;border-top:1px solid var(--line-2);padding-top:20px}
 .notes b{font-weight:300;color:var(--accent)}
-.order-box{flex:999 1 560px;min-width:0;background:var(--bg);border:1px solid var(--line-2);padding:clamp(24px,4vw,48px)}
-form{display:flex;flex-direction:column;gap:28px}
+.order-box{flex:999 1 560px;min-width:0;background:var(--navy);border:1px solid var(--line-2);padding:clamp(24px,4vw,48px)}
+form{display:flex;flex-direction:column;gap:26px}
 .row{display:flex;flex-wrap:wrap;gap:20px}
 .row > div{flex:1 1 200px;min-width:0}
 .row.three > div{flex:1 1 160px}
 label,legend{display:block;margin-bottom:10px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 fieldset{border:0;margin:0;padding:0}
 legend{padding:0;margin-bottom:12px}
-.field{font:inherit;font-size:16px;font-weight:300;width:100%;background:var(--bg);color:var(--text);border:1px solid var(--line-3);border-radius:2px;padding:14px 16px;min-height:52px;color-scheme:dark;outline:none;transition:border-color .2s}
+.field{font:inherit;font-size:16px;font-weight:300;width:100%;background:var(--navy);color:var(--text);border:1px solid var(--line-3);border-radius:2px;padding:14px 16px;min-height:52px;color-scheme:dark;outline:none;transition:border-color .2s}
 .field:focus{border-color:var(--accent)}
 .field::placeholder{color:var(--faint)}
 .field[aria-invalid="true"]{border-color:#E8A87C}
 select.field{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 22px) 50%,calc(100% - 16px) 50%;background-size:6px 6px,6px 6px;background-repeat:no-repeat;padding-right:44px}
 textarea.field{resize:vertical;line-height:1.6}
-.pills{display:flex;flex-wrap:wrap;gap:10px}
-.pill{font:inherit;font-size:14px;padding:12px 18px;min-height:46px;border:1px solid var(--line-3);border-radius:999px;background:transparent;color:var(--text);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
-.pill:hover{border-color:var(--accent)}
-.pill[aria-pressed="true"]{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+.choices{display:flex;flex-wrap:wrap;gap:10px}
+.choice{font:inherit;font-size:14px;padding:12px 18px;min-height:46px;border:1px solid var(--line-3);border-radius:999px;background:transparent;color:var(--text);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.choice:hover{border-color:var(--accent)}
+.choice[aria-pressed="true"]{background:var(--accent);color:var(--navy);border-color:var(--accent)}
 .alert{margin:0;padding:14px 16px;border:1px solid #E8A87C;color:#F3C9A9;font-size:14px;line-height:1.5}
 .small{margin:0;font-size:13px;color:var(--faint);text-align:center}
 [hidden]{display:none !important}
-
-.done{display:flex;flex-direction:column;align-items:flex-start;gap:24px;padding:16px 0}
+.done{display:flex;flex-direction:column;align-items:flex-start;gap:22px;padding:16px 0}
 .done h3{margin:0;font-family:var(--serif);font-weight:400;font-size:44px;line-height:1.1}
 .done > p{margin:0;font-size:16px;line-height:1.7;color:var(--muted);max-width:460px}
-.summary{width:100%;border-top:1px solid var(--line-2)}
-.summary div{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding:16px 0;border-bottom:1px solid var(--line);font-size:15px}
+.summary{width:100%;border-top:1px solid var(--line-2);margin:0}
+.summary div{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
 .summary dt{color:var(--muted);letter-spacing:.08em}
 .summary dd{margin:0;text-align:right}
-.btn-ghost{font:inherit;background:transparent;color:var(--text);border:1px solid var(--line-4);padding:14px 24px;min-height:48px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;cursor:pointer}
-.btn-ghost:hover{border-color:var(--accent)}
+
+/* Gallery */
+.gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:220px;gap:14px;margin-top:48px}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.gallery a{overflow:hidden;display:block}
+.gallery a:hover img{transform:scale(1.04)}
+.gallery .big{grid-column:span 2;grid-row:span 2}
+.ig{font-family:var(--serif);font-style:italic;font-size:26px;color:var(--brand)}
 
 /* Footer */
 footer{border-top:1px solid var(--line)}
-.foot{padding-top:96px;padding-bottom:40px}
+.foot{padding-top:88px;padding-bottom:40px}
 .foot-cols{display:flex;flex-wrap:wrap;gap:48px;justify-content:space-between}
 .foot-cols > div{flex:1 1 180px;min-width:0}
 .foot-cols > div:first-child{flex-basis:280px}
 .foot-cols p{margin:0;font-size:15px;line-height:1.8;color:var(--muted)}
 .foot-cols .eyebrow{margin-bottom:16px;letter-spacing:.24em}
-.foot-bottom{margin-top:80px;padding-top:24px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13px;color:var(--faint)}
+.foot-cols a:hover{color:var(--text)}
+.foot-cols p.wordmark{font-family:var(--deco);font-weight:700;font-size:30px;letter-spacing:.03em;color:var(--text) !important;line-height:1.2 !important}
+.foot-bottom{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13px;color:var(--faint)}
 .foot-bottom a{color:var(--muted)}
 
+/* Reveal on scroll */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-@media (max-width:640px){
-  nav.main{gap:20px}
-  nav.main a:not(.cta){display:none}
-  .section{padding-top:88px;padding-bottom:88px}
-  .hero{padding-top:32px;padding-bottom:88px}
+.light :focus-visible{outline-color:var(--brand)}
+
+@media (max-width:1200px){.float{--k:.74}.f2{left:6%}.f5{right:6%}}
+@media (max-width:1000px){.float{--k:.62}.f2,.f5{display:none}}
+@media (max-width:760px){
+  .topbar .wrap > span:first-child{display:none}
+  .topbar .wrap{justify-content:center}
+  nav.main a.lnk{display:none}
+  .brand .logo{width:64px;height:64px}
+  .section{padding-top:80px;padding-bottom:80px}
+  .hero{padding:190px 16px 200px;min-height:0}
+  .hero-card{padding:40px 24px}
+  .float{--k:1}
+  .f1{--s:120px;left:3%;top:24px}
+  .f4{--s:130px;right:3%;top:40px;left:auto}
+  .f3{--s:110px;left:4%;top:auto;bottom:40px}
+  .f6{--s:120px;right:4%;top:auto;bottom:24px}
+  .gallery{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:160px}
+  .ev-pics img:last-child{margin-top:28px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before{animation:none !important;transition:none !important}
+  .float,.hero-card,.reveal{opacity:1 !important;transform:none !important}
 }
 </style>
 </head>
 <body>
 
-<div class="wrap">
-<header class="site">
-  <a href="#inicio" class="brand" aria-label="Punto Nieve Bakery, inicio">
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" style="color:var(--accent)"><line x1="12" y1="2" x2="12" y2="22"/><line x1="3.34" y1="7" x2="20.66" y2="17"/><line x1="3.34" y1="17" x2="20.66" y2="7"/><circle cx="12" cy="12" r="2.2" fill="currentColor" stroke="none"/></svg>
-    <span class="brand-name"><b>Punto Nieve</b><small>BAKERY</small></span>
-  </a>
-  <nav class="main" aria-label="Principal">
-    <a href="#productos">Productos</a>
-    <a href="#como-funciona">Cómo funciona</a>
-    <a href="#contacto">Contacto</a>
-    <a href="#pedidos" class="cta">Agendar pedido</a>
-  </nav>
-</header>
+<div class="topbar">
+  <div class="wrap">
+    <span>Pedidos con 48 horas de anticipación</span>
+    <span class="links">
+      <a href="https://wa.me/50496469781" target="_blank" rel="noopener">WhatsApp +504 9646-9781</a>
+      <a href="https://instagram.com/puntonievehn" target="_blank" rel="noopener">Instagram @puntonievehn</a>
+    </span>
+  </div>
 </div>
 
+<header class="site">
+  <div class="wrap">
+    <a href="#inicio" class="brand" aria-label="Punto Nieve Bakery, inicio">
+      <svg class="logo" viewBox="0 0 100 100" role="img" aria-label="Punto Nieve Bakery"><circle cx="50" cy="50" r="46" fill="none" stroke="#141A54" stroke-width="1.6" stroke-dasharray="230 59" transform="rotate(-128 50 50)"/><text x="50" y="45" text-anchor="middle" font-family="'Cinzel Decorative', Georgia, serif" font-weight="700" font-size="17" fill="#141A54">PUNTO</text><text x="50" y="64" text-anchor="middle" font-family="'Cinzel Decorative', Georgia, serif" font-weight="700" font-size="17" fill="#141A54">NIEVE</text><text x="50" y="76" text-anchor="middle" font-family="Jost, sans-serif" font-size="6" letter-spacing="2.4" fill="#141A54">BAKERY</text></svg>
+    </a>
+    <nav class="main" aria-label="Principal">
+      <a class="lnk" href="#nosotros">Nosotros</a>
+      <a class="lnk" href="#especialidades">Especialidades</a>
+      <a class="lnk" href="#eventos">Eventos</a>
+      <a class="lnk" href="#contacto">Contacto</a>
+      <a href="#pedidos" class="pill pill-dark pill-sm">Ordenar ahora</a>
+    </nav>
+  </div>
+</header>
+
 <main>
-<div class="wrap hero" id="inicio">
-  <div class="hero-copy">
+<section class="hero" id="inicio">
+  <div class="float f1"><img src="/img/portada.webp" alt="" width="360" height="450"></div>
+  <div class="float f2"><img src="/img/buttercream.webp" alt="" width="360" height="450"></div>
+  <div class="float f3"><img src="/img/tresleches.webp" alt="" width="360" height="450"></div>
+  <div class="float f4"><img src="/img/cheesecake.webp" alt="" width="360" height="450"></div>
+  <div class="float f5"><img src="/img/flan.webp" alt="" width="360" height="450"></div>
+  <div class="float f6"><img src="/img/chocoflan.webp" alt="" width="360" height="450"></div>
+  <div class="hero-card">
     <p class="eyebrow">Repostería artesanal · Libre de conservantes añadidos</p>
     <h1>Ingredientes Premium y <em>SABORES REALES</em></h1>
     <p class="lead">Postres 100% Artesanales para Cumpleaños, Aniversario, Graduación, Baby Shower, o para un delicioso domingo por la tarde.</p>
     <div class="actions">
-      <a href="#pedidos" class="btn">Agendar pedido</a>
-      <a href="#productos" class="link-line">Ver productos</a>
+      <a href="#pedidos" class="pill pill-light">Ordenar ahora</a>
+      <a href="#especialidades" class="pill pill-ghost">Ver especialidades</a>
     </div>
     <div class="traits"><span>Hecho a mano</span><i>·</i><span>Por encargo</span><i>·</i><span>Delivery/Pick-Up</span></div>
   </div>
-  <div class="hero-art">
-    <img class="hero-img" src="/img/portada.webp" alt="Tiramisú de Punto Nieve servido en plato blanco" width="560" height="700" fetchpriority="high">
-  </div>
-</div>
+</section>
 
-<section id="productos">
+<section class="light" id="nosotros">
+  <div class="wrap section center">
+    <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="2" x2="12" y2="22"/><line x1="3.34" y1="7" x2="20.66" y2="17"/><line x1="3.34" y1="17" x2="20.66" y2="7"/><circle cx="12" cy="12" r="2.2" fill="currentColor" stroke="none"/></svg>
+    <h2 class="h2">¿Por qué elegirnos?</h2>
+    <p class="why-intro muted">Repostería hecha a mano, en pequeñas tandas y siempre preparada para tu fecha.</p>
+    <div class="why-grid">
+      <article class="why-card reveal">
+        <img src="/img/cheesecake.webp" alt="Cheesecake con arándanos" loading="lazy" width="360" height="450">
+        <div class="body">
+          <h3>Ingredientes premium</h3>
+          <p>Seleccionamos ingredientes de calidad para que cada bocado sepa a lo que es.</p>
+          <a href="#especialidades" class="pill pill-dark pill-sm">Ver especialidades</a>
+        </div>
+      </article>
+      <article class="why-card reveal">
+        <img src="/img/chocoflan.webp" alt="Chocoflan con fresas" loading="lazy" width="360" height="450">
+        <div class="body">
+          <h3>Libre de conservantes</h3>
+          <p>Cada postre se prepara especialmente para tu fecha, sin conservantes añadidos.</p>
+          <a href="#pedidos" class="pill pill-dark pill-sm">Ordenar ahora</a>
+        </div>
+      </article>
+      <article class="why-card reveal">
+        <img src="/img/buttercream.webp" alt="Pastel de buttercream decorado" loading="lazy" width="360" height="450">
+        <div class="body">
+          <h3>Diseño a tu medida</h3>
+          <p>Sabores, rellenos y decoración se ajustan a tu gusto y a tu celebración.</p>
+          <a href="#eventos" class="pill pill-dark pill-sm">Cotizar evento</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="especialidades">
   <div class="wrap section">
     <div class="head-row">
       <div>
@@ -189,29 +316,120 @@ footer{border-top:1px solid var(--line)}
       <p class="head-note">PARA CONSERVAR LA FRESCURA Y SABOR, CADA POSTRE SE PREPARA ESPECIAL PARA TU FECHA. LOS SABORES, RELLENOS Y DECORACIÓN SE AJUSTAN A TU GUSTO!</p>
     </div>
     <div class="cards">
-      <article class="card">
-        <div class="ph">[Foto]</div>
-        <h3>Buttercream Cake</h3>
-        <p>Para cumpleaños, bodas y fechas especiales. Diseño y sabor a tu medida.</p>
-        <div class="card-foot"><span class="muted">Desde [PRECIO]</span><a href="#pedidos" data-pick="pastel">Pedir →</a></div>
+      <article class="card reveal">
+        <div class="pic"><img src="/img/buttercream.webp" alt="Buttercream Cake" loading="lazy" width="360" height="450"></div>
+        <div class="body"><h3>Buttercream Cake</h3><p>Para cumpleaños, bodas y fechas especiales. Diseño y sabor a tu medida. Envíanos una imagen de referencia y cantidad de invitados.</p>
+        <div class="foot"><span class="muted">Desde L.890</span><a href="#pedidos" class="pill pill-ghost pill-sm" data-pick="Buttercream Cake">Pedir</a></div></div>
       </article>
-      <article class="card">
-        <div class="ph">[Foto]</div>
-        <h3>Cheesecakes</h3>
-        <p>Cremosos, horneados con calma. Sabor: Fresa, Arándanos, Frutos Rojos, Nutella, o Salted Caramel</p>
-        <div class="card-foot"><span class="muted">Desde [PRECIO]</span><a href="#pedidos" data-pick="cheesecake">Pedir →</a></div>
+      <article class="card reveal">
+        <div class="pic"><img src="/img/cheesecake.webp" alt="Cheesecake" loading="lazy" width="360" height="450"></div>
+        <div class="body"><h3>Cheesecakes</h3><p>Cremosos, horneados con calma. Sabor: Fresa, Arándanos, Frutos Rojos, Nutella, o Salted Caramel.</p>
+        <div class="foot"><span class="muted">Desde [PRECIO]</span><a href="#pedidos" class="pill pill-ghost pill-sm" data-pick="Cheesecake">Pedir</a></div></div>
       </article>
-      <article class="card">
-        <div class="ph">[Foto]</div>
-        <h3>Tartas de temporada</h3>
-        <p>Masa quebrada y rellenos que cambian según la fruta del momento.</p>
-        <div class="card-foot"><span class="muted">Desde [PRECIO]</span><a href="#pedidos" data-pick="tarta">Pedir →</a></div>
+      <article class="card reveal">
+        <div class="pic"><img src="/img/chocoflan.webp" alt="Chocoflan Napolitano-Fresas" loading="lazy" width="360" height="450"></div>
+        <div class="body"><h3>Chocoflan Napolitano-Fresas</h3><p>Base de chocolate, flan napolitano, cubierta de caramelo y fresas frescas.</p>
+        <div class="foot"><span class="muted">Desde [PRECIO]</span><a href="#pedidos" class="pill pill-ghost pill-sm" data-pick="Chocoflan Napolitano-Fresas">Pedir</a></div></div>
       </article>
-      <article class="card">
-        <div class="ph">[Foto]</div>
-        <h3>Cajas de postres</h3>
-        <p>Una selección de piezas individuales para regalar o compartir.</p>
-        <div class="card-foot"><span class="muted">Desde [PRECIO]</span><a href="#pedidos" data-pick="caja">Pedir →</a></div>
+      <article class="card reveal">
+        <div class="pic"><img src="/img/tresleches.webp" alt="Tres Leches-Oreo" loading="lazy" width="360" height="450"></div>
+        <div class="body"><h3>Tres Leches-Oreo</h3><p>Bizcocho tres leches con crema batida y galletas Oreo.</p>
+        <div class="foot"><span class="muted">Desde [PRECIO]</span><a href="#pedidos" class="pill pill-ghost pill-sm" data-pick="Tres Leches-Oreo">Pedir</a></div></div>
+      </article>
+      <article class="card reveal">
+        <div class="pic"><img src="/img/portada.webp" alt="Tiramisú" loading="lazy" width="560" height="700"></div>
+        <div class="body"><h3>Tiramisú</h3><p>Bizcocho bañado en café, crema suave y cacao.</p>
+        <div class="foot"><span class="muted">Desde [PRECIO]</span><a href="#pedidos" class="pill pill-ghost pill-sm" data-pick="Tiramisú">Pedir</a></div></div>
+      </article>
+      <article class="card reveal">
+        <div class="pic"><img src="/img/flan.webp" alt="Postre de la casa" loading="lazy" width="360" height="450"></div>
+        <div class="body"><h3>[NOMBRE DEL POSTRE]</h3><p>[Descripción breve del postre]</p>
+        <div class="foot"><span class="muted">Desde [PRECIO]</span><a href="#pedidos" class="pill pill-ghost pill-sm" data-pick="[NOMBRE DEL POSTRE]">Pedir</a></div></div>
+      </article>
+      <article class="card reveal">
+        <div class="pic"><div class="ph"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#3B5788" stroke-width=".9" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="2" x2="12" y2="22"/><line x1="3.34" y1="7" x2="20.66" y2="17"/><line x1="3.34" y1="17" x2="20.66" y2="7"/></svg><span>[Foto]</span></div></div>
+        <div class="body"><h3>Cupcakes</h3><p>Mini postres decorados, ideales para mesas y regalos.</p>
+        <div class="foot"><span class="muted">Desde [PRECIO]</span><a href="#pedidos" class="pill pill-ghost pill-sm" data-pick="Cupcakes">Pedir</a></div></div>
+      </article>
+      <article class="card reveal">
+        <div class="pic"><div class="ph"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#3B5788" stroke-width=".9" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="2" x2="12" y2="22"/><line x1="3.34" y1="7" x2="20.66" y2="17"/><line x1="3.34" y1="17" x2="20.66" y2="7"/></svg><span>[Foto]</span></div></div>
+        <div class="body"><h3>Brownies</h3><p>Chocolate intenso, húmedos por dentro.</p>
+        <div class="foot"><span class="muted">Desde [PRECIO]</span><a href="#pedidos" class="pill pill-ghost pill-sm" data-pick="Brownies">Pedir</a></div></div>
+      </article>
+      <article class="card reveal">
+        <div class="pic"><div class="ph"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#3B5788" stroke-width=".9" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="2" x2="12" y2="22"/><line x1="3.34" y1="7" x2="20.66" y2="17"/><line x1="3.34" y1="17" x2="20.66" y2="7"/></svg><span>[Foto]</span></div></div>
+        <div class="body"><h3>Pie de Limón</h3><p>Base crujiente, relleno cítrico y merengue.</p>
+        <div class="foot"><span class="muted">Desde [PRECIO]</span><a href="#pedidos" class="pill pill-ghost pill-sm" data-pick="Pie de Limón">Pedir</a></div></div>
+      </article>
+      <article class="card reveal">
+        <div class="pic"><div class="ph"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#3B5788" stroke-width=".9" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="2" x2="12" y2="22"/><line x1="3.34" y1="7" x2="20.66" y2="17"/><line x1="3.34" y1="17" x2="20.66" y2="7"/></svg><span>[Foto]</span></div></div>
+        <div class="body"><h3>Red Velvet</h3><p>Bizcocho aterciopelado con frosting de queso crema.</p>
+        <div class="foot"><span class="muted">Desde [PRECIO]</span><a href="#pedidos" class="pill pill-ghost pill-sm" data-pick="Red Velvet">Pedir</a></div></div>
+      </article>
+      <article class="card reveal">
+        <div class="pic"><div class="ph"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#3B5788" stroke-width=".9" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="2" x2="12" y2="22"/><line x1="3.34" y1="7" x2="20.66" y2="17"/><line x1="3.34" y1="17" x2="20.66" y2="7"/></svg><span>[Foto]</span></div></div>
+        <div class="body"><h3>Galletas Decoradas</h3><p>Personalizadas con la temática de tu celebración.</p>
+        <div class="foot"><span class="muted">Desde [PRECIO]</span><a href="#pedidos" class="pill pill-ghost pill-sm" data-pick="Galletas Decoradas">Pedir</a></div></div>
+      </article>
+      <article class="card reveal">
+        <div class="pic"><div class="ph"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#3B5788" stroke-width=".9" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="2" x2="12" y2="22"/><line x1="3.34" y1="7" x2="20.66" y2="17"/><line x1="3.34" y1="17" x2="20.66" y2="7"/></svg><span>[Foto]</span></div></div>
+        <div class="body"><h3>Cajas de Postres</h3><p>Una selección de piezas individuales para regalar o compartir.</p>
+        <div class="foot"><span class="muted">Desde [PRECIO]</span><a href="#pedidos" class="pill pill-ghost pill-sm" data-pick="Cajas de Postres">Pedir</a></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="light" id="eventos">
+  <div class="wrap section">
+    <div class="ev-split">
+      <div class="ev-copy">
+        <p class="eyebrow">Eventos especiales</p>
+        <h2 class="h2">Endulzamos tus celebraciones</h2>
+        <p class="muted">Pasteles temáticos, mesas de postres y detalles para tus invitados. Cuéntanos la fecha, el número de invitados y la idea que tienes en mente, y armamos una propuesta para ti.</p>
+        <a href="#pedidos" class="pill pill-dark" data-event="Otro evento">Cotizar mi evento</a>
+      </div>
+      <div class="ev-pics">
+        <img src="/img/flan.webp" alt="Postre decorado con cerezas" loading="lazy" width="360" height="450">
+        <img src="/img/tresleches.webp" alt="Tres leches con Oreo" loading="lazy" width="360" height="450">
+      </div>
+    </div>
+    <div class="ev-grid">
+      <article class="ev-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21h16M5 21v-7h14v7M5 17c2 1 3 1 4.7 0s3.6-1 4.6 0 3 1 4.7 0M12 14v-3M12 8a1.5 1.5 0 0 0 0-3c0 1-1 1.5 0 3z"/></svg>
+        <h3>Cumpleaños</h3>
+        <p>Pasteles personalizados con tu temática, nombre y edad.</p>
+        <a href="#pedidos" data-event="Cumpleaños">Cotizar →</a>
+      </article>
+      <article class="ev-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="14" r="5"/><circle cx="15" cy="14" r="5"/><path d="M10 5l2-2 2 2-2 2z"/></svg>
+        <h3>Bodas</h3>
+        <p>Pastel principal y mesa de postres para tu gran día.</p>
+        <a href="#pedidos" data-event="Boda">Cotizar →</a>
+      </article>
+      <article class="ev-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10a5 5 0 0 1 10 0v4a5 5 0 0 1-10 0z"/><path d="M12 5V3M9 21l3-2 3 2"/><circle cx="10" cy="11" r=".6" fill="currentColor"/><circle cx="14" cy="11" r=".6" fill="currentColor"/></svg>
+        <h3>Baby Shower</h3>
+        <p>Detalles dulces en los colores de tu celebración.</p>
+        <a href="#pedidos" data-event="Baby Shower">Cotizar →</a>
+      </article>
+      <article class="ev-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5M22 9v6"/></svg>
+        <h3>Graduaciones</h3>
+        <p>Celebra el logro con postres para toda la familia.</p>
+        <a href="#pedidos" data-event="Graduación">Cotizar →</a>
+      </article>
+      <article class="ev-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>
+        <h3>Aniversarios</h3>
+        <p>Postres especiales para celebrar en pareja o en familia.</p>
+        <a href="#pedidos" data-event="Aniversario">Cotizar →</a>
+      </article>
+      <article class="ev-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="1.5"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 12h18"/></svg>
+        <h3>Eventos corporativos</h3>
+        <p>Cajas y mesas de postres para tu equipo o tus clientes.</p>
+        <a href="#pedidos" data-event="Evento corporativo">Cotizar →</a>
       </article>
     </div>
   </div>
@@ -224,7 +442,7 @@ footer{border-top:1px solid var(--line)}
     <div class="steps">
       <div class="step"><span>01</span><h3>Elige tu postre</h3><p>Escoge el producto, el tamaño y cuéntanos sabores o detalles de decoración.</p></div>
       <div class="step"><span>02</span><h3>Agenda la fecha</h3><p>Selecciona el día y la franja horaria. Recibimos pedidos con al menos 48 horas de anticipación.</p></div>
-      <div class="step"><span>03</span><h3>Recoge o recibe</h3><p>Te confirmamos disponibilidad y total. Pasas por tu pedido o lo llevamos a tu puerta.</p></div>
+      <div class="step"><span>03</span><h3>Recoge o recibe</h3><p>Te confirmamos disponibilidad y total por WhatsApp. Pasas por tu pedido o lo llevamos a tu puerta.</p></div>
     </div>
   </div>
 </section>
@@ -234,7 +452,7 @@ footer{border-top:1px solid var(--line)}
     <div class="order-info">
       <p class="eyebrow">Agenda tu pedido</p>
       <h2 class="h2">Reserva tu fecha</h2>
-      <p>Completa el formulario y te escribiremos para confirmar los detalles de tu pedido.</p>
+      <p>Completa el formulario y se abrirá WhatsApp con tu pedido listo para enviar.</p>
       <div class="notes">
         <div><b>—</b><span>Pedidos con mínimo 48 horas de anticipación.</span></div>
         <div><b>—</b><span>Confirmamos disponibilidad y total por WhatsApp.</span></div>
@@ -255,21 +473,40 @@ footer{border-top:1px solid var(--line)}
           </div>
         </div>
 
-        <div>
-          <label for="f-email">Correo electrónico (opcional)</label>
-          <input id="f-email" name="email" class="field" type="email" autocomplete="email" placeholder="tucorreo@ejemplo.com">
-        </div>
-
-        <fieldset>
-          <legend>Producto *</legend>
-          <div class="pills" data-group="product">
-            <button type="button" class="pill" data-value="pastel" aria-pressed="false">Pastel de celebración</button>
-            <button type="button" class="pill" data-value="cheesecake" aria-pressed="false">Cheesecake</button>
-            <button type="button" class="pill" data-value="tarta" aria-pressed="false">Tarta de temporada</button>
-            <button type="button" class="pill" data-value="caja" aria-pressed="false">Caja de postres</button>
-            <button type="button" class="pill" data-value="otro" aria-pressed="false">Otro</button>
+        <div class="row">
+          <div>
+            <label for="f-product">Producto *</label>
+            <select id="f-product" name="product" class="field" required>
+              <option value="">Seleccionar</option>
+              <option>Buttercream Cake</option>
+              <option>Cheesecake</option>
+              <option>Chocoflan Napolitano-Fresas</option>
+              <option>Tres Leches-Oreo</option>
+              <option>Tiramisú</option>
+              <option>[NOMBRE DEL POSTRE]</option>
+              <option>Cupcakes</option>
+              <option>Brownies</option>
+              <option>Pie de Limón</option>
+              <option>Red Velvet</option>
+              <option>Galletas Decoradas</option>
+              <option>Cajas de Postres</option>
+              <option>Otro</option>
+            </select>
           </div>
-        </fieldset>
+          <div>
+            <label for="f-event">Evento (opcional)</label>
+            <select id="f-event" name="event" class="field">
+              <option value="">Ninguno</option>
+              <option>Cumpleaños</option>
+              <option>Boda</option>
+              <option>Baby Shower</option>
+              <option>Graduación</option>
+              <option>Aniversario</option>
+              <option>Evento corporativo</option>
+              <option>Otro evento</option>
+            </select>
+          </div>
+        </div>
 
         <div class="row three">
           <div>
@@ -298,11 +535,22 @@ footer{border-top:1px solid var(--line)}
           </div>
         </div>
 
+        <div class="row">
+          <div>
+            <label for="f-guests">Invitados (aprox.)</label>
+            <input id="f-guests" name="guests" class="field" type="number" min="1" inputmode="numeric" placeholder="Ej. 30">
+          </div>
+          <div>
+            <label for="f-email">Correo (opcional)</label>
+            <input id="f-email" name="email" class="field" type="email" autocomplete="email" placeholder="tucorreo@ejemplo.com">
+          </div>
+        </div>
+
         <fieldset>
           <legend>Entrega</legend>
-          <div class="pills" data-group="delivery">
-            <button type="button" class="pill" data-value="recoger" aria-pressed="true">Recoger en tienda</button>
-            <button type="button" class="pill" data-value="domicilio" aria-pressed="false">Entrega a domicilio</button>
+          <div class="choices" data-group="delivery">
+            <button type="button" class="choice" data-value="Pick-Up en tienda" aria-pressed="true">Pick-Up</button>
+            <button type="button" class="choice" data-value="Delivery a domicilio" aria-pressed="false">Delivery</button>
           </div>
         </fieldset>
 
@@ -313,24 +561,38 @@ footer{border-top:1px solid var(--line)}
 
         <div>
           <label for="f-notes">Detalles del pedido</label>
-          <textarea id="f-notes" name="notes" class="field" rows="4" placeholder="Sabor, relleno, mensaje en el pastel, alergias…"></textarea>
+          <textarea id="f-notes" name="notes" class="field" rows="4" placeholder="Sabor, relleno, mensaje en el pastel, temática, alergias…"></textarea>
         </div>
 
         <p id="form-error" class="alert" role="alert" hidden>Completa nombre, teléfono, producto, fecha y horario para agendar tu pedido.</p>
 
-        <button type="submit" class="btn">Agendar pedido</button>
+        <button type="submit" class="pill pill-light">Agendar pedido por WhatsApp</button>
         <p class="small">Tu pedido queda reservado al confirmar el anticipo.</p>
       </form>
 
       <div id="order-done" class="done" hidden>
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" aria-hidden="true" style="color:var(--accent)"><line x1="12" y1="2" x2="12" y2="22"/><line x1="3.34" y1="7" x2="20.66" y2="17"/><line x1="3.34" y1="17" x2="20.66" y2="7"/><circle cx="12" cy="12" r="2.2" fill="currentColor" stroke="none"/></svg>
-        <p class="eyebrow" style="margin:0">Solicitud recibida · <span id="d-code"></span></p>
+        <p class="eyebrow" style="margin:0">Solicitud lista · <span id="d-code"></span></p>
         <h3 tabindex="-1" id="d-title">Gracias.</h3>
-        <p id="d-msg"></p>
+        <p>Abrimos WhatsApp con tu pedido listo para enviar. Si no se abrió, toca el botón. Te confirmaremos disponibilidad, total y anticipo.</p>
         <dl class="summary" id="d-summary"></dl>
-        <a id="d-wa" class="btn" href="#" target="_blank" rel="noopener" hidden>Enviar pedido por WhatsApp</a>
-        <button type="button" class="btn-ghost" id="d-reset">Agendar otro pedido</button>
+        <a id="d-wa" class="pill pill-light" href="#" target="_blank" rel="noopener">Enviar pedido por WhatsApp</a>
+        <button type="button" class="pill pill-ghost" id="d-reset">Agendar otro pedido</button>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="light" id="galeria">
+  <div class="wrap section center">
+    <p class="eyebrow">Galería</p>
+    <h2 class="h2">Síguenos en Instagram</h2>
+    <p style="margin:14px 0 0"><a class="ig" href="https://instagram.com/puntonievehn" target="_blank" rel="noopener">@puntonievehn</a></p>
+    <div class="gallery">
+      <a class="big" href="https://instagram.com/puntonievehn" target="_blank" rel="noopener" aria-label="Tiramisú en Instagram"><img src="/img/portada.webp" alt="Tiramisú" loading="lazy"></a>
+      <a href="https://instagram.com/puntonievehn" target="_blank" rel="noopener" aria-label="Cheesecake en Instagram"><img src="/img/cheesecake.webp" alt="Cheesecake" loading="lazy"></a>
+      <a href="https://instagram.com/puntonievehn" target="_blank" rel="noopener" aria-label="Chocoflan en Instagram"><img src="/img/chocoflan.webp" alt="Chocoflan" loading="lazy"></a>
+      <a href="https://instagram.com/puntonievehn" target="_blank" rel="noopener" aria-label="Tres leches en Instagram"><img src="/img/tresleches.webp" alt="Tres Leches-Oreo" loading="lazy"></a>
+      <a href="https://instagram.com/puntonievehn" target="_blank" rel="noopener" aria-label="Buttercream cake en Instagram"><img src="/img/buttercream.webp" alt="Buttercream Cake" loading="lazy"></a>
     </div>
   </div>
 </section>
@@ -340,13 +602,13 @@ footer{border-top:1px solid var(--line)}
   <div class="wrap foot">
     <div class="foot-cols">
       <div>
-        <p style="font-family:'Cinzel Decorative', Georgia, serif;font-size:30px;font-weight:700;letter-spacing:.03em;color:var(--text);line-height:1.2">Punto Nieve</p>
+        <p class="wordmark">Punto Nieve</p>
         <p style="font-size:11px;letter-spacing:.42em;margin-top:6px">BAKERY</p>
-        <p style="margin-top:24px;max-width:280px">Repostería artesanal por encargo.</p>
+        <p style="margin-top:22px;max-width:280px">Repostería artesanal por encargo. Sabores reales.</p>
       </div>
       <div><p class="eyebrow">Visítanos</p><p>[DIRECCIÓN]<br>[CIUDAD]</p></div>
       <div><p class="eyebrow">Horario</p><p>[DÍAS]<br>[HORAS]</p></div>
-      <div><p class="eyebrow">Contacto</p><p><a href="https://wa.me/50496469781" target="_blank" rel="noopener" style="color:var(--muted)">WhatsApp +504 9646-9781</a><br>Instagram [@USUARIO]</p></div>
+      <div><p class="eyebrow">Contacto</p><p><a href="https://wa.me/50496469781" target="_blank" rel="noopener">WhatsApp +504 9646-9781</a><br><a href="https://instagram.com/puntonievehn" target="_blank" rel="noopener">Instagram @puntonievehn</a></p></div>
     </div>
     <div class="foot-bottom">
       <span>© <span id="year">2026</span> Punto Nieve Bakery</span>
@@ -356,9 +618,7 @@ footer{border-top:1px solid var(--line)}
 </footer>
 
 <script>
-/* ===== Configuración =====
-   Escribe aquí el número de WhatsApp del negocio (solo dígitos, con código de país, p. ej. "50499998888").
-   Si lo dejas vacío, el pedido solo muestra la confirmación en pantalla. */
+/* ===== Configuración ===== */
 var WHATSAPP_NUMBER = "50496469781";
 var MIN_DAYS_AHEAD = 2;
 
@@ -367,45 +627,39 @@ var MIN_DAYS_AHEAD = 2;
   var done = document.getElementById('order-done');
   var errorBox = document.getElementById('form-error');
   var addressWrap = document.getElementById('address-wrap');
-  var state = { product: '', delivery: 'recoger' };
-  var labels = {
-    product: { pastel: 'Pastel de celebración', cheesecake: 'Cheesecake', tarta: 'Tarta de temporada', caja: 'Caja de postres', otro: 'Otro' },
-    delivery: { recoger: 'Recoger en tienda', domicilio: 'Entrega a domicilio' }
-  };
+  var productSel = document.getElementById('f-product');
+  var eventSel = document.getElementById('f-event');
+  var delivery = 'Pick-Up en tienda';
 
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Fecha mínima
   var d = new Date(); d.setDate(d.getDate() + MIN_DAYS_AHEAD);
   var pad = function (n) { return (n < 10 ? '0' : '') + n; };
   document.getElementById('f-date').min = d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
 
-  function setPill(group, value) {
-    state[group] = value;
-    document.querySelectorAll('[data-group="' + group + '"] .pill').forEach(function (b) {
+  function setDelivery(value) {
+    delivery = value;
+    document.querySelectorAll('[data-group="delivery"] .choice').forEach(function (b) {
       b.setAttribute('aria-pressed', b.dataset.value === value ? 'true' : 'false');
     });
-    if (group === 'delivery') addressWrap.hidden = value !== 'domicilio';
-    errorBox.hidden = true;
+    addressWrap.hidden = value !== 'Delivery a domicilio';
   }
-
-  document.querySelectorAll('.pills').forEach(function (g) {
-    g.addEventListener('click', function (e) {
-      var b = e.target.closest('.pill');
-      if (b) setPill(g.dataset.group, b.dataset.value);
-    });
+  document.querySelector('[data-group="delivery"]').addEventListener('click', function (e) {
+    var b = e.target.closest('.choice'); if (b) setDelivery(b.dataset.value);
   });
 
   document.querySelectorAll('[data-pick]').forEach(function (a) {
-    a.addEventListener('click', function () { setPill('product', a.dataset.pick); });
+    a.addEventListener('click', function () { productSel.value = a.dataset.pick; errorBox.hidden = true; });
+  });
+  document.querySelectorAll('[data-event]').forEach(function (a) {
+    a.addEventListener('click', function () { eventSel.value = a.dataset.event; });
   });
 
   form.addEventListener('input', function () { errorBox.hidden = true; });
 
   function prettyDate(v) {
-    try {
-      return new Date(v + 'T12:00:00').toLocaleDateString('es-HN', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
-    } catch (e) { return v; }
+    try { return new Date(v + 'T12:00:00').toLocaleDateString('es-HN', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }); }
+    catch (e) { return v; }
   }
 
   form.addEventListener('submit', function (e) {
@@ -413,22 +667,24 @@ var MIN_DAYS_AHEAD = 2;
     var f = form.elements;
     var data = {
       name: f.name.value.trim(), phone: f.phone.value.trim(), email: f.email.value.trim(),
+      product: f.product.value, event: f.event.value, guests: f.guests.value.trim(),
       size: f.size.value, date: f.date.value, time: f.time.value,
       address: f.address.value.trim(), notes: f.notes.value.trim()
     };
-    var missing = [];
-    ['name', 'phone', 'date', 'time'].forEach(function (k) {
+    var missing = false;
+    ['name', 'phone', 'product', 'date', 'time'].forEach(function (k) {
       var bad = !data[k];
       f[k].setAttribute('aria-invalid', bad ? 'true' : 'false');
-      if (bad) missing.push(k);
+      if (bad) missing = true;
     });
-    if (!state.product) missing.push('product');
-    if (missing.length) { errorBox.hidden = false; errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' }); return; }
+    if (missing) { errorBox.hidden = false; errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' }); return; }
 
     var code = 'PN-' + Math.floor(1000 + Math.random() * 9000);
-    var product = labels.product[state.product] + (data.size ? ' · ' + data.size : '');
-    var delivery = labels.delivery[state.delivery] + (state.delivery === 'domicilio' && data.address ? ' · ' + data.address : '');
-    var rows = [['Producto', product], ['Fecha', prettyDate(data.date)], ['Horario', data.time], ['Entrega', delivery]];
+    var rows = [['Producto', data.product + (data.size ? ' · ' + data.size : '')]];
+    if (data.event) rows.push(['Evento', data.event]);
+    if (data.guests) rows.push(['Invitados', data.guests]);
+    rows.push(['Fecha', prettyDate(data.date)], ['Horario', data.time],
+      ['Entrega', delivery + (delivery === 'Delivery a domicilio' && data.address ? ' · ' + data.address : '')]);
     if (data.notes) rows.push(['Detalles', data.notes]);
 
     var dl = document.getElementById('d-summary');
@@ -442,34 +698,38 @@ var MIN_DAYS_AHEAD = 2;
     document.getElementById('d-code').textContent = code;
     document.getElementById('d-title').textContent = 'Gracias, ' + data.name.split(' ')[0] + '.';
 
+    var msg = 'Hola, Punto Nieve Bakery. Quiero agendar un pedido (' + code + '):\n' +
+      rows.map(function (r) { return '• ' + r[0] + ': ' + r[1]; }).join('\n') +
+      '\n• Nombre: ' + data.name + '\n• Teléfono: ' + data.phone + (data.email ? '\n• Correo: ' + data.email : '');
     var wa = document.getElementById('d-wa');
-    if (WHATSAPP_NUMBER) {
-      var msg = 'Hola, Punto Nieve Bakery. Quiero agendar un pedido (' + code + '):\n' +
-        rows.map(function (r) { return '• ' + r[0] + ': ' + r[1]; }).join('\n') +
-        '\n• Nombre: ' + data.name + '\n• Teléfono: ' + data.phone + (data.email ? '\n• Correo: ' + data.email : '');
-      wa.href = 'https://wa.me/' + WHATSAPP_NUMBER.replace(/\D/g, '') + '?text=' + encodeURIComponent(msg);
-      wa.hidden = false;
-      document.getElementById('d-msg').textContent = 'Abrimos WhatsApp con tu pedido listo para enviar. Si no se abrió, toca el botón. Te confirmaremos disponibilidad, total y anticipo.';
-      window.open(wa.href, '_blank', 'noopener');
-    } else {
-      wa.hidden = true;
-      document.getElementById('d-msg').textContent = 'Te escribiremos al ' + data.phone + ' para confirmar disponibilidad, total y anticipo.';
-    }
+    wa.href = 'https://wa.me/' + WHATSAPP_NUMBER.replace(/\D/g, '') + '?text=' + encodeURIComponent(msg);
 
     form.hidden = true;
     done.hidden = false;
     document.getElementById('d-title').focus();
+    window.open(wa.href, '_blank', 'noopener');
   });
 
   document.getElementById('d-reset').addEventListener('click', function () {
     form.reset();
-    setPill('product', '');
-    setPill('delivery', 'recoger');
+    setDelivery('Pick-Up en tienda');
     form.querySelectorAll('[aria-invalid]').forEach(function (el) { el.removeAttribute('aria-invalid'); });
-    done.hidden = true;
-    form.hidden = false;
+    done.hidden = true; form.hidden = false;
     document.getElementById('f-name').focus();
   });
+
+  // Aparición suave al hacer scroll
+  var items = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    items.forEach(function (el, i) { el.style.transitionDelay = (i % 4) * 80 + 'ms'; io.observe(el); });
+  } else {
+    items.forEach(function (el) { el.classList.add('in'); });
+  }
 })();
 </script>
 </body>
